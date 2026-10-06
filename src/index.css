@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+/* Enable class-based dark mode in Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --bg-main: #fcfcfd;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f4f4f5;
+    --border-main: #e4e4e7;
+    --text-main: #09090b;
+    --text-muted: #71717a;
+    --accent-purple: #7c3aed;
+    --accent-purple-light: #8b5cf6;
+    --accent-glow: rgba(124, 58, 237, 0.08);
+  }
+
+  html.dark {
+    --bg-main: #090a10;
+    --bg-card: #131124;
+    --bg-card-hover: #1a1630;
+    --border-main: #272343;
+    --text-main: #f4f4f5;
+    --text-muted: #a1a1aa;
+    --accent-purple: #a78bfa;
+    --accent-purple-light: #c4b5fd;
+    --accent-glow: rgba(167, 139, 250, 0.12);
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Outfit', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+/* Sonivale Ambient Concentric Glow */
+.sonivale-glow-light {
+  background: radial-gradient(circle at center, rgba(221, 214, 254, 0.5) 0%, rgba(243, 232, 255, 0.2) 45%, transparent 70%);
+}
+
+html.dark .sonivale-glow-light {
+  background: radial-gradient(circle at center, rgba(139, 92, 246, 0.25) 0%, rgba(76, 29, 149, 0.12) 50%, transparent 75%);
+}
+
+/* Card Hover Effects */
+.sonivale-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+}
+.sonivale-card:hover {
+  transform: translateY(-3px);
+}
+
+.btn-press {
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-press:active {
+  transform: scale(0.96);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 9999px;
+}
+html.dark ::-webkit-scrollbar-thumb {
+  background: #27272a;
+}
